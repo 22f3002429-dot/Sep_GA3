@@ -7,7 +7,7 @@ from pydantic import BaseModel, ConfigDict
 from groq import Groq
 
 APP_PROFILE = "ga5-incident-agent/v2"
-DB_PATH = os.getenv("DATABASE_PATH", "/var/data/incident.db")
+DB_PATH = os.getenv("DATABASE_PATH", "/tmp/incident.db")
 MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 app = FastAPI(title="Observable Incident Triage Agent", version="2.0")
 client = Groq(api_key=os.getenv("GROQ_API_KEY")) if os.getenv("GROQ_API_KEY") else None
